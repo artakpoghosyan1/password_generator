@@ -32,7 +32,7 @@ const checkboxes: ICheckBoxes[] = [
 ]
 
 export const Checkboxes: FC<Props> = memo(({onChange, options}) => (
-    <ul className='mb-20'>
+    <ul className='mb-30'>
         {checkboxes.map(({label, type}, index) => (
             <div className={`form-group form-group--flex ${index < checkboxes.length - 1 && 'mb-10'}`} key={type}>
                 <input

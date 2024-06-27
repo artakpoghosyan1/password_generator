@@ -44,8 +44,8 @@ export const Generator: FC = () => {
         navigator.clipboard.writeText(password)
     };
 
-    return <section className='generator'>
-        <div className="form-group form-group-action mb-15">
+    return <div className='generator'>
+        <div className="form-group form-group-action mb-20">
             <button className='btn form-group-action__btn' onClick={copyToClipboard}>
                 <img src={`${copyIcon}`} alt="Copy button"/>
             </button>
@@ -56,7 +56,7 @@ export const Generator: FC = () => {
             />
         </div>
 
-        <div className='mb-15 form-group'>
+        <div className='form-group mb-20'>
             <label className='form-label form-label--block'>Character length</label>
             <input
                 type='range'
@@ -73,5 +73,5 @@ export const Generator: FC = () => {
         <button className="btn primary-btn generator__btn" onClick={handleGeneratePassword}>
             Generate
         </button>
-    </section>
+    </div>
 }
