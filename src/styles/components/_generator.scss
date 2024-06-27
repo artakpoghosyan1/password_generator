@@ -1,0 +1,15 @@
+.generator {
+  max-width: 600px;
+  height: 100%;
+  margin: 0 auto;
+  border: 1px solid $border_color;
+  padding: 20px;
+
+  &__btn, &__input, &__range {
+    width: 100%;
+  }
+
+  &__copy {
+    position: absolute;
+  }
+}

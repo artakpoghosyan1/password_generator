@@ -1,0 +1,38 @@
+.form-field {
+  @include input-reset();
+  border: 1px solid $border_color;
+  padding: 12px;
+}
+
+.form-label {
+  border-color: $border_color;
+
+  &--block {
+    display: block;
+    margin-bottom: 10px;
+  }
+}
+
+.form-group {
+  position: relative;
+
+  &--flex {
+    display: flex;
+    gap: 10px;
+  }
+}
+
+.form-group-action {
+  position: relative;
+
+  &__btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &__field {
+    padding-right: 43px;
+  }
+}
