@@ -1,4 +1,4 @@
-export enum CheckBoxEnums {
+export enum CheckBoxTypesEnum {
     Lowercase = 'LOWERCASE',
     Uppercase = 'UPPERCASE',
     Numbers = 'NUMBERS',
