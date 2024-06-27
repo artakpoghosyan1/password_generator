@@ -2,6 +2,10 @@ html, body {
   height: 100vh;
 }
 
+body {
+  font-family: arial, serif;
+}
+
 *, *:after, *:before {
   box-sizing: border-box;
   margin: 0;
