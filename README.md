@@ -4,12 +4,13 @@
 
 ### Prerequisites
 
-Ensure you have Node.js and yarn installed on your machine.
+Ensure you have the latest versions of Node.js and yarn installed on your machine.
 
 ### Clone the repository
 
 ```bash
 git clone https://github.com/artakpoghosyan1/password_generator.git
+cd password_generator
 ```
 
 ### Run the project
