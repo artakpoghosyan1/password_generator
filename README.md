@@ -20,5 +20,5 @@ yarn dev
 ```
 
 ## Demo preview
-Project Link: [Password generator](https://artakpoghosyan1.github.io/color_dropper)
+Project Link: [Password generator](https://artakpoghosyan1.github.io/password_generator/)
 
