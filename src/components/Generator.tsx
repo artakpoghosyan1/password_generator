@@ -3,7 +3,7 @@ import copyIcon from '../assets/copy_icon.svg';
 import {Checkboxes} from "./Checkboxes.tsx";
 import {CheckBoxTypesEnum} from "../enums/CheckBoxTypesEnum.ts";
 import {TOptions} from "../types/IOptions.ts";
-import {checkIsSelectedCount, generatePassword} from "../utilities.ts";
+import {getSelectedCount, generatePassword} from "../utilities.ts";
 
 const optionsInitialValue = {
     [CheckBoxTypesEnum.Lowercase]: true,
@@ -18,12 +18,12 @@ const PASSWORD_MAX_LENGTH = 30
 export const Generator: FC = () => {
     const [options, setOptions] = useState<TOptions>(optionsInitialValue)
     const [passwordLength, setPasswordLength] = useState<number>(PASSWORD_MIN_LENGTH)
-    const [password, setPassword] = useState('')
+    const [password, setPassword] = useState<string>('')
 
     const handleCheckboxChange = useCallback((type: CheckBoxTypesEnum) => {
         setOptions(types => {
             const value = !types[type]
-            const checkedCount = checkIsSelectedCount(types)
+            const checkedCount = getSelectedCount(types)
 
             return {
                 ...types,
@@ -57,7 +57,7 @@ export const Generator: FC = () => {
         </div>
 
         <div className='form-group mb-20'>
-            <label className='form-label form-label--block'>Character length</label>
+            <label className='form-label form-label--block'>Character length {passwordLength}</label>
             <input
                 type='range'
                 value={passwordLength}

@@ -1,15 +1,15 @@
 import {TOptions} from "./types/IOptions.ts";
 import {CheckBoxTypesEnum} from "./enums/CheckBoxTypesEnum.ts";
 
-export function checkIsSelectedCount(types: TOptions) {
+export function getSelectedCount(types: TOptions): number {
     return Object.values(types).filter(type => type).length
 }
 
-export function generatePassword(size: number, options: TOptions) {
+export function generatePassword(size: number, options: TOptions): string {
     const lowercase = 'abcdefghijklmnopqrstuvwxyz'
     const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
     const numbers = '0123456789'
-    const symbols = '!@#$%^&*()_+~`|}{[]:;?><,./-=\\';
+    const symbols = '!@#$%^&*()_+~`|}{[]:;?><,./-=\\'
 
     let characters = ''
     let result = ''
