@@ -1,4 +1,4 @@
-import {FC, useCallback, useState} from "react";
+import {ChangeEvent, FC, useCallback, useState} from "react";
 import copyIcon from '../assets/copy_icon.svg';
 import {Checkboxes} from "./Checkboxes.tsx";
 import {CheckBoxTypesEnum} from "../enums/CheckBoxTypesEnum.ts";
@@ -17,7 +17,7 @@ const PASSWORD_MAX_LENGTH = 30
 
 export const Generator: FC = () => {
     const [options, setOptions] = useState<TOptions>(optionsInitialValue)
-    const [passwordLength, setPasswordLength] = useState(PASSWORD_MIN_LENGTH)
+    const [passwordLength, setPasswordLength] = useState<number>(PASSWORD_MIN_LENGTH)
     const [password, setPassword] = useState('')
 
     const handleCheckboxChange = useCallback((type: CheckBoxTypesEnum) => {
@@ -32,8 +32,8 @@ export const Generator: FC = () => {
         })
     }, [])
 
-    const handleRangeChange = ({target}) => {
-        setPasswordLength(target.value)
+    const handleRangeChange = (event: ChangeEvent<HTMLInputElement>) => {
+        setPasswordLength(+event.target.value)
     }
 
     const handleGeneratePassword = () => {
