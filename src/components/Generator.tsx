@@ -1,5 +1,6 @@
 import {ChangeEvent, FC, useCallback, useState} from "react";
 import copyIcon from '../assets/copy_icon.svg';
+import done from '../assets/done.svg';
 import {Checkboxes} from "./Checkboxes.tsx";
 import {CheckBoxTypesEnum} from "../enums/CheckBoxTypesEnum.ts";
 import {TOptions} from "../types/IOptions.ts";
@@ -19,6 +20,7 @@ export const Generator: FC = () => {
     const [options, setOptions] = useState<TOptions>(optionsInitialValue)
     const [passwordLength, setPasswordLength] = useState<number>(PASSWORD_MIN_LENGTH)
     const [password, setPassword] = useState<string>('')
+    const [isCopied, setIsCopied] = useState<boolean>(false)
 
     const handleCheckboxChange = useCallback((type: CheckBoxTypesEnum) => {
         setOptions(types => {
@@ -41,13 +43,25 @@ export const Generator: FC = () => {
     }
 
     const copyToClipboard = () => {
-        navigator.clipboard.writeText(password)
-    };
+        if(password) {
+            navigator.clipboard.writeText(password).then(() => {
+                setIsCopied(true)
+
+                setTimeout(() => {
+                    setIsCopied(false)
+                }, 2000)
+            })
+        }
+    }
 
     return <div className='generator'>
         <div className="form-group form-group-action mb-20">
             <button className='btn form-group-action__btn' onClick={copyToClipboard}>
-                <img src={`${copyIcon}`} alt="Copy button"/>
+                {
+                    isCopied ?
+                        <img src={`${done}`} alt="Copy done button"/> :
+                        <img src={`${copyIcon}`} alt="Copy button"/>
+                }
             </button>
             <input
                 type="text"
